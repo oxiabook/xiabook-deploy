@@ -53,12 +53,6 @@ services:
          - ./redis/data:/data
         ports:
          - "16379:6379"
-        deploy:
-          resources:
-            limits:
-              cpus: "0.50"
-              memory: 500M
-  
 
     xiabook-puppeteer:
         image: registry.cn-chengdu.aliyuncs.com/xiabook/puppeteer-alpine:v1.0.2
