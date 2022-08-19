@@ -4,3 +4,14 @@ docker network create xiabook-net
 ```
 
 docker compose up
+
+wget http://192.168.31.2:33000/yangzhu/xiabook-deploy/archive/release-20220818.tar.gz
+tar -zxvf release-20220818.tar.gz
+cd xiabook-deploy/
+mkdir books
+docker network create xiabook-net
+docker-compose up 
+
+
+群晖
+docker-compose up 

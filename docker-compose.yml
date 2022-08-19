@@ -53,6 +53,12 @@ services:
          - ./redis/data:/data
         ports:
          - "16379:6379"
+        deploy:
+          resources:
+            limits:
+              cpus: "0.50"
+              memory: 500M
+  
 
     xiabook-puppeteer:
         image: registry.cn-chengdu.aliyuncs.com/xiabook/puppeteer-alpine:v1.0.2
@@ -74,9 +80,9 @@ services:
           - xiabook-mysql
           - xiabook-redis
           - xiabook-puppeteer
-        build:
-          context: ../xiabook-server
-          dockerfile: Dockerfile
+        # build:
+          # context: ../xiabook-server
+          # dockerfile: Dockerfile
         volumes:
          - ./books:/runtime/books
         ports:
@@ -88,9 +94,9 @@ services:
         image: registry.cn-chengdu.aliyuncs.com/xiabook/client:v1.0.5
         container_name: xiabook-client
         hostname: com.xiabook.client
-        build:
-          context: ../xiabook-client
-          dockerfile: Dockerfile
+        # build:
+        #   context: ../xiabook-client
+        #   dockerfile: Dockerfile
         depends_on:
           - xiabook-server
         environment:
@@ -104,6 +110,3 @@ services:
 networks:
   xiabook-net:
     name: xiabook-net
-  host:
-    external: 
-      name: host
