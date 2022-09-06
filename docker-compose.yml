@@ -55,7 +55,7 @@ services:
          - "16379:6379"
 
     xiabook-puppeteer:
-        image: registry.cn-chengdu.aliyuncs.com/xiabook/puppeteer-alpine:v1.0.2
+        image: xiabook/puppeteer-alpine:v1.0.2
         container_name: xiabook-puppeteer
         hostname: com.xiabook.puppeteer
         # network_mode: bridge
@@ -65,7 +65,7 @@ services:
          - "18088:8088"
 
     xiabook-server:
-        image: registry.cn-chengdu.aliyuncs.com/xiabook/server:v1.0.8
+        image: xiabook/server:v1.0.8
         container_name: xiabook-server
         hostname: com.xiabook.server
         env_file:
@@ -85,7 +85,7 @@ services:
          - xiabook-net
 
     xiabook-client:
-        image: registry.cn-chengdu.aliyuncs.com/xiabook/client:v1.0.5
+        image: xiabook/client:v1.0.5
         container_name: xiabook-client
         hostname: com.xiabook.client
         # build:
